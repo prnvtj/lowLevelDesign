@@ -15,3 +15,9 @@ Singleton Design Code:
     • Singleton Access: The getInstance() method is used to access the single instance of the settings.
     • Public Static method: "Global Access":- Any part of the application can access the settings using AppSettings.getInstance().   
      
+
+1. Eager Loading (load the class as soon as getInstance is called)
+
+2. Lazy Loading (load the class only when needed)
+
+3. Bill Pugh Singleton (best practice for lazy loading)
