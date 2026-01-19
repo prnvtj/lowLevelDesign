@@ -1,5 +1,3 @@
-![img.png](img.png)![img_1.png](img_1.png)
-
 
 Motivation:
 Consider an example of transportation service app where users can request different types of transport vehicles (e.g., Car, Bike, Bus). You might initially create separate classes for each type and create instances like this:
