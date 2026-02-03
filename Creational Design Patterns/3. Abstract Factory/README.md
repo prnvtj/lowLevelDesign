@@ -23,4 +23,25 @@ Use of Abstract Factory Pattern is appropriate in the following scenarios:
   * Hardcoding limits the ability to support other countries or multiple combinations of payment methods and invoice formats.
 
 **Improved Design: Abstract Factory Pattern for CheckoutService**
-WithAbstract.java follows the Abstract Factory Pattern to cleanly separate the creation of PaymenGateway and Invoice objects from the business logic of CheckoutService
+WithAbstract.java follows the Abstract Factory Pattern to cleanly separate the creation of PaymentGateway and Invoice objects from the business logic of CheckoutService
+
+**How this code fixes the original issues**
+* Object creation logic was mixed with business logic:
+  * Now moved to separate factory classes like IndiaFactory
+* Concrete classes like RazorPay and PayU were hardcoded in the service:
+  * Replaced with abstraction (PaymentGateway, Invoice) and created via interfaces
+* Adding a new gateway or invoice type required modifying CheckoutService:
+  * Now, new gateways or invoices can be added by updating/ adding new factory - no changes required in the service class
+* Thw code was difficult to maintain and scale across regions:
+  * Now easy to maintain and scale by plugging in region-specific factories (e.g., USFactory, IndiaFactory, etc)
+
+
+**Key Benefits of Abstract Pattern design**
+* Scalable: Added new countries or payment systems by simply creating new factories.
+* Clean and Maintainable: CheckoutService doesn't care what kind of gateway or invoice it's using.
+* Easy to Test: Each factory can be tested independently with its own unit tests.
+* Follows SOLID Principles: Especially the OCP and Dependency Inversion Principle
+
+
+
+![img.png](img.png)
